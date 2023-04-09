@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<br>
+<div class="container emp-profile pb-3">
+    <form method="POST" action="." class="needs-validation" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="text-muted">Личная информация:</h5><br>
+
+                <div class="d-flex justify-content-between">
+                    <div class="m-1 mr-2">
+                        <label class="text-muted"><small>Имя:</small></label>
+                        {{ form.first_name }}
+                    </div>
+
+                    <div class="m-1">
+                        <label class="text-muted"><small>Фамилия:</small></label>
+                        {{ form.last_name }}
+                    </div>
+                </div>
+
+                <div class="m-1">
+                    <label class="text-muted"><small>Почта:</small></label>
+                    {{ form.email }}
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <h5 class="text-muted">Доп. информация:</h5><br>
+                
+                <div class="m-1">
+                    <label class="text-muted"><small>Должен прийти в:</small></label>
+                    {{ form.shift }}
+                </div>
+                
+            </div>
+
+            <div class="col-md-4">
+                <h5 class="text-muted">Фото:</h5><br>
+                <div>
+                    <img src="{% static 'img/bio.jpg'%}" alt="" width="100%">
+                </div>
+                <div class="mt-3">
+                    {{ form.image }}
+                </div>
+            </div>
+
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-success btn-large">Сохранить</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+{% endblock content %}

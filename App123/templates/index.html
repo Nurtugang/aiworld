@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+    <br>
+    <!-- <a class="prof btn btn-lg btn-block btn-primary " href="{% url 'mainpage' %}">Система аутентификациии</a>
+    <a class="find btn btn-lg btn-block btn-primary " href="{% url 'find' %}">Система поиска определенного человека</a>
+    <a class="car btn btn-lg btn-block btn-primary " href="{% url 'car' %}">Система определения транспорта</a> -->
+    <div class="card-deck">
+        <div class="card" style="width:200px; background-color: white;">
+            <div class="card-body">
+                <h4 class="card-title">Система аутентификациии пользователя
+                    
+                </h4>
+                
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Выбрать камеру</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'mainpage' 'Camera1' %}">Камера 1</a>
+                        <a class="dropdown-item" href="{% url 'mainpage' 'Camera2' %}">Камера 2</a>
+                        <a class="dropdown-item" href="{% url 'mainpage' 'Camera3' %}">Камера 3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="width:200px; background-color: white;">
+            <div class="card-body">
+                <h4 class="card-title">Система поиска определенного человека
+                    
+                </h4>
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <br>
+                    <button class="btn btn-md btn-primary" type="submit">Найти</button>
+                </form>
+            </div>
+            
+        </div>
+
+        <div class="card" style="width:200px; background-color: white;">
+            <div class="card-body">
+            <h4 class="card-title">Система определения<br> транспорта
+                
+            </h4>
+            
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Выбрать камеру</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'car' 'Camera1' %}">Камера 1</a>
+                    <a class="dropdown-item" href="{% url 'car' 'Camera2' %}">Камера 2</a>
+                    <a class="dropdown-item" href="{% url 'car' 'Camera3' %}">Камера 3</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<br>
+
+<div class="card-columns">
+    {% for profile in profiles %}
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="{{profile.image.url}}" alt="Card image">
+            <div class="card-body">
+            <h4 class="card-title">{{profile.first_name}}</h4>
+            <p class="card-text">{{profile.email}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content%}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<br>
+<button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+    Загрузка...
+  </button>
+<p id="last_face" class="d-none">{{last_face}}</p>
+
+<script>
+    setInterval(function () {
+        var url = 'http://127.0.0.1:8000/ajax/';
+        var last_face = document.getElementById('last_face').innerHTML;
+        $.ajax({
+            url: url,
+            success: function (data) {
+                if (data != last_face) {
+                    location.reload()
+                }
+            }
+        })
+    }, 3000);
+
+</script>
+
+{% endblock content %}

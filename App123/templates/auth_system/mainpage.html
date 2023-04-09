@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+<a target="_blank" class="scan" href="{% url 'login' cam %}">
+    <input type="submit" class="btn btn-lg btn-block btn-primary" name="btnAddMore" value="Кіру"/>
+</a>
+<br>
+<a href="{% url 'register' %}">
+    <input type="submit" class="btn btn-lg btn-block btn-primary" name="btnAddMore" value="Тіркелу"/>
+</a>
+<br>
+<a class="prof btn btn-lg btn-block btn-primary " href="{% url 'prof' %}">Профили</a>
+
+
+
+<script>
+  $(".scan").click(function () {
+      var postData = { csrfmiddlewaretoken: '{{ csrf_token }}' }
+      $.ajax({
+          url: "{% url 'scan' cam %}",
+          data: {
+
+          },
+      });
+  });
+</script>
+
+{% endblock content%}
